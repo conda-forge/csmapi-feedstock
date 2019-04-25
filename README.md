@@ -150,4 +150,4 @@ Feedstock Maintainers
 =====================
 
 * [@jlaura](https://github.com/jlaura/)
-
+* [@kelvinrr](https://github.com/kelvinrr/)
