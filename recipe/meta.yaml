@@ -18,14 +18,14 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake >=3.10
     - swig
-    - python >=3.5
+    - python
   host:
     - csm
-    - python >=3.5
+    - python
     - setuptools
   run:
     - csm
-    - python >=3.5
+    - python
 
 test:
   imports:
