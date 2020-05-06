@@ -1,5 +1,5 @@
 {% set name = "csmapi" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/USGS-Astrogeology/swigcsm/archive/{{ version }}.tar.gz
-  sha256: 81a6914facb91cf4d5e7156b59eb37d75c598b13d8de467852e43dac69a6bc58
+  sha256: 999fb2d0a9e5c5d95ecded4368aa14a3894d98c18f42e908d7d5cef3bb3c8ecd
 
 build:
   number: 0
-  skip: True  # [win or py2k]
+  skip: true  # [win or py2k]
 
 requirements:
   build:
