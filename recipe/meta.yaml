@@ -11,11 +11,13 @@ source:
 
 build:
   number: 1
-  skip: true  # [win or py2k]
+  skip: true  # [win]
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make
     - cmake >=3.10
     - swig
     - python
