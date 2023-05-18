@@ -1,22 +1,23 @@
 {% set name = "csmapi" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/USGS-Astrogeology/swigcsm/archive/{{ version }}.tar.gz
-  sha256: 999fb2d0a9e5c5d95ecded4368aa14a3894d98c18f42e908d7d5cef3bb3c8ecd
+  url: https://github.com/DOI-USGS/swigcsm/archive/refs/tags/{{ version }}.tar.gz
+  sha256: e96ad5649b6ba2c755e8feaa81e2d7c032e76e85d4fbe88f7f9fe5155e4f179f
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win or py2k]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake >=3.10
+    - make
     - swig
     - python
   host:
@@ -32,13 +33,12 @@ test:
     - csmapi
 
 about:
-  home: http://github.com/USGS-Astrogeology/swigcsm
-  license: Public Domain
-  license_file: LICENSE.txt
+  home: http://github.com/DOI-USGS/swigcsm
+  license: CC0-1.0
+  license_file: LICENSE.md
   summary: Swig generated Python bindings to the Community Sensor Model API
 
 extra:
   recipe-maintainers:
     - jlaura
     - kelvinrr
-    - jessemapel
