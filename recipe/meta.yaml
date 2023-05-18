@@ -1,5 +1,5 @@
 {% set name = "csmapi" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/DOI-USGS/swigcsm/archive/refs/tags/{{ version }}.tar.gz
-  sha256: aee33400cbcd31c5a2cab47a127dc7121737ca3b21009684cfc1d9edbe8ada7c
+  sha256: e96ad5649b6ba2c755e8feaa81e2d7c032e76e85d4fbe88f7f9fe5155e4f179f
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win or py2k]
 
 requirements:
@@ -32,7 +32,7 @@ test:
     - csmapi
 
 about:
-  home: http://github.com/DOI-USGSy/swigcsm
+  home: http://github.com/DOI-USGS/swigcsm
   license: Public Domain
   license_file: LICENSE.txt
   summary: Swig generated Python bindings to the Community Sensor Model API
