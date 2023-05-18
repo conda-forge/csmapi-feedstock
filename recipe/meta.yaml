@@ -34,8 +34,8 @@ test:
 
 about:
   home: http://github.com/DOI-USGS/swigcsm
-  license: Public Domain
-  license_file: LICENSE.txt
+  license: CC0-1.0
+  license_file: LICENSE.md
   summary: Swig generated Python bindings to the Community Sensor Model API
 
 extra:
