@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/USGS-Astrogeology/swigcsm/archive/{{ version }}.tar.gz
-  sha256: 999fb2d0a9e5c5d95ecded4368aa14a3894d98c18f42e908d7d5cef3bb3c8ecd
+  url: https://github.com/DOI-USGS/swigcsm/archive/refs/tags/{{ version }}.tar.gz
+  sha256: aee33400cbcd31c5a2cab47a127dc7121737ca3b21009684cfc1d9edbe8ada7c
 
 build:
   number: 1
@@ -32,7 +32,7 @@ test:
     - csmapi
 
 about:
-  home: http://github.com/USGS-Astrogeology/swigcsm
+  home: http://github.com/DOI-USGSy/swigcsm
   license: Public Domain
   license_file: LICENSE.txt
   summary: Swig generated Python bindings to the Community Sensor Model API
@@ -41,4 +41,3 @@ extra:
   recipe-maintainers:
     - jlaura
     - kelvinrr
-    - jessemapel
