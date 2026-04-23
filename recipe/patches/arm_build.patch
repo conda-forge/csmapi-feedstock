@@ -1,27 +1,29 @@
-From 31c69adcc16bdc2625f90c9307aa9c811777ab26 Mon Sep 17 00:00:00 2001
+From 0df5323717c960b7423a91d70ef3a9dc69e8eef6 Mon Sep 17 00:00:00 2001
 From: Adam Paquette <acpaquette@usgs.gov>
 Date: Thu, 23 Apr 2026 12:51:53 -0600
 Subject: [PATCH] Update deprecated "swig_link_libraries" and add install
  command
 
 ---
- python/CMakeLists.txt | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ python/CMakeLists.txt | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
-index 1fecae4..ef43cf6 100644
+index 1c9e0a9..ef43cf6 100644
 --- a/python/CMakeLists.txt
 +++ b/python/CMakeLists.txt
-@@ -9,7 +9,7 @@ set(Python_FIND_VIRTUALENV FIRST)
- set(Python_FIND_REGISTRY LAST)
- set(Python_FIND_FRAMEWORK LAST)
- set(Python_FIND_STRATEGY LOCATION)
--find_package(Python3 REQUIRED COMPONENTS Development)
-+find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+@@ -5,6 +5,10 @@ set_source_files_properties(../csmapi.i
+                             PROPERTIES CPLUSPLUS ON)
+ 
+ #Find dependencies
++set(Python_FIND_VIRTUALENV FIRST)
++set(Python_FIND_REGISTRY LAST)
++set(Python_FIND_FRAMEWORK LAST)
++set(Python_FIND_STRATEGY LOCATION)
+ find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
  find_path(CSM_INCLUDE_DIR NAMES csm.h
                            PATH_SUFFIXES csm)
- find_library(CSM_LIBRARY NAMES csmapi)
-@@ -21,7 +21,7 @@ include_directories(${CSM_INCLUDE_DIR})
+@@ -17,7 +21,7 @@ include_directories(${CSM_INCLUDE_DIR})
  swig_add_library(csmapi
                   LANGUAGE python
                   SOURCES ../csmapi.i)
@@ -30,7 +32,7 @@ index 1fecae4..ef43cf6 100644
  set_property(TARGET csmapi PROPERTY SWIG_USE_TARGET_INCLUDE_DIRECTORIES TRUE)
  
  set_target_properties(csmapi PROPERTIES LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SWIG_OUTDIR})
-@@ -46,4 +46,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/__init__.py
+@@ -42,4 +46,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/__init__.py
  enable_testing()
  add_test(NAME python-wrapper-tests
          COMMAND python -m pytest ${CMAKE_SOURCE_DIR}/python/tests --lib ${CMAKE_CURRENT_BINARY_DIR}/../fixture/libfixturecsm${CMAKE_SHARED_LIBRARY_SUFFIX}
