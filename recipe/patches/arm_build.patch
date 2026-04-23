@@ -1,10 +1,9 @@
-From a871e09ec5684913a7272835eb11a890d857ce3d Mon Sep 17 00:00:00 2001
+From 31c69adcc16bdc2625f90c9307aa9c811777ab26 Mon Sep 17 00:00:00 2001
 From: Adam Paquette <acpaquette@usgs.gov>
-Date: Thu, 23 Apr 2026 12:11:27 -0600
-Subject: [PATCH] Update deprecated "SWIG_LINK_LIBRARIES" and add install
+Date: Thu, 23 Apr 2026 12:51:53 -0600
+Subject: [PATCH] Update deprecated "swig_link_libraries" and add install
  command
 
-Added Interpreter to python find
 ---
  python/CMakeLists.txt | 9 ++++++---
  1 file changed, 6 insertions(+), 3 deletions(-)
