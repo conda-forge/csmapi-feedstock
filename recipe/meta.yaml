@@ -19,10 +19,13 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - cmake >=3.10
+    - cmake-no-system >=3.10
     - make
     - swig
-    - python
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - make
+    - swig
   host:
     - csm
     - pip
