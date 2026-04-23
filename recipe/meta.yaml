@@ -8,21 +8,27 @@ package:
 source:
   url: https://github.com/DOI-USGS/swigcsm/archive/refs/tags/{{ version }}.tar.gz
   sha256: e96ad5649b6ba2c755e8feaa81e2d7c032e76e85d4fbe88f7f9fe5155e4f179f
+  patches:
+    - "patches/arm_build.patch"
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win or py2k]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
-    - cmake >=3.10
+    - cmake-no-system >=3.10
     - make
     - swig
-    - python
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - make
+    - swig
   host:
     - csm
+    - pip
     - python
     - setuptools
   run:
