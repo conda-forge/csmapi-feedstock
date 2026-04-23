@@ -13,6 +13,8 @@ index 1fecae4..2c0ffec 100644
 --- a/python/CMakeLists.txt
 +++ b/python/CMakeLists.txt
 @@ -21,7 +21,7 @@ include_directories(${CSM_INCLUDE_DIR})
+-find_package(Python3 REQUIRED COMPONENTS Development)
++find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
  swig_add_library(csmapi
                   LANGUAGE python
                   SOURCES ../csmapi.i)
